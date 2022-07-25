@@ -1,4 +1,10 @@
 <template id="tmpl">
-    <div class="message">Hello, world!</div>
+    <ul><li id="content"></li></ul>
 </template>
-<script src="./js/global.js"></script>
+
+<script>    
+    var menu = ["Desarrollador", "Electronico", "contador", "Contacto"]
+    elem.attachShadow({mode: 'open'});
+    elem.shadowRoot.append(tmpl.content.cloneNode(true)); 
+    elem.shadowRoot.getElementById('content').innerHTML = menu[0];
+</script>

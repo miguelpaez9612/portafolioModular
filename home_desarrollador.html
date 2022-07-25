@@ -8,18 +8,41 @@
     <link rel="stylesheet" type="text/css" href="./css/global.css">
 </head>
 <body>
-    <template id="tmpl">
-        <ul><li id="content"></li></ul>
-    </template>
-<div id="elem"></div>
+    <table id="navbar"><thead><tr><td></td></tr></thead><tbody></tbody></table>
+    <template id="template_navbar"><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></template>
 
-<script>    
+<script>
+    
     var menu = ["Desarrollador", "Electronico", "contador", "Contacto"]
-    elem.attachShadow({mode: 'open'});
-    elem.shadowRoot.append(tmpl.content.cloneNode(true)); 
-    elem.shadowRoot.getElementById('content').innerHTML = menu[0];
-    elem.shadowRoot.append(tmpl.content.cloneNode(true));
-    elem.shadowRoot.getElementById('content').innerHTML = menu[1];
+    var t = document.querySelector('#template_navbar'),
+    td = t.content.querySelectorAll("td");
+    td[0].textContent = menu[0];
+    td[1].textContent = menu[1];
+    td[2].textContent = menu[2];
+    td[3].textContent = menu[3];
+    td[4].textContent = menu[0];
+    td[5].textContent = menu[1];
+    td[6].textContent = menu[2];
+    td[7].textContent = menu[3];
+
+    // Clonar la nueva fila e insertarla en la tabla
+    var tb = document.querySelector("tbody");
+    var clone = document.importNode(t.content, true);
+    // tb.appendChild(clone);
+
+    // Crear una nueva fila
+    // td[0].textContent = "0384928528";
+    // td[1].textContent = "Acme Kidney Beans";
+    // td[2].textContent = menu[2];
+    // td[3].textContent = menu[3];
+
+    // Clonar la nueva fila e insertarla en la tabla
+    var clone2 = document.importNode(t.content, true);
+    tb.appendChild(clone2);
+    
+    // elem.attachShadow({mode: 'open'});
+    // elem.shadowRoot.append(tmpl.content.cloneNode(true)); 
+    // elem.shadowRoot.getElementById('content').innerHTML = menu[0];
 </script>
 </body>
 <script src="./js/global.js"></script>
